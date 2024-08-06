@@ -16,8 +16,7 @@ import PageSizeSelector from "./components/PageSizeSelector";
 // }
 //Simulate a reducer
 function paginateData<T extends Student>(
-  data: T[],
-  pageSize: number,
+  data: T[],pageSize: number,
   pageIndex: number,
 ) {
   return data.slice((pageIndex - 1) * pageSize, pageIndex * pageSize);
