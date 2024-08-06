@@ -28,7 +28,7 @@
   "lint-staged": {
     "*.tsx": [
       "npm run format",
-      "npm run lint"
+      "npx lint"
     ]
   },
   "eslintConfig": {
