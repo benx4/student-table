@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Basic styling for the table container and wrapper */
+.table-container {
+  margin: 10em auto;
+  margin-bottom: 5em;
+  width: 40em;
+  height: 20em;
+  border-radius: 8px;
+  background-color: gray;
+  boreder-1px-solid: #ccc;
+  overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+.table-wrapper {
+  width: 50em;
+}
+.table-wrapper > div + div {
+  margin-top: 1px;
+}
