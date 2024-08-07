@@ -19,6 +19,8 @@ const TableHeaderWrapper = styled.div`
     color: white;
     text-align: center;
     & > i {
+      user-select: none;
+      cursor: pointer;
       position: relative;
       display: inline-block;
       margin-left: 4px;
@@ -27,6 +29,8 @@ const TableHeaderWrapper = styled.div`
       font-weight: 700;
     }
     & > b {
+      user-select: none;
+      cursor: pointer;
       position: relative;
       display: inline-block;
       margin-left: 4px;

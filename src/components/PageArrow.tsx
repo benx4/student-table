@@ -6,6 +6,8 @@ const PageArrowWapper = styled.em<{ place: "left" | "right" }>`
   height: 50px;
   border-radius: 50%;
   background-color: #1970c0;
+  user-select: none;
+  cursor: pointer;
 
   position: absolute;
   top: 40%;
