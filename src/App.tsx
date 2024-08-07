@@ -18,7 +18,7 @@ import PageSizeSelector from "./components/PageSizeSelector";
 function paginateData<T extends Student>(
   data: T[],
   pageSize: number,
-  pageIndex: number,
+  pageIndex: number
 ) {
   return data.slice((pageIndex - 1) * pageSize, pageIndex * pageSize);
 }
@@ -61,7 +61,7 @@ function App() {
                           : 1;
                     });
                     return result;
-                  }),
+                  })
                 )
                 .then(() => {
                   setSortField(field);
@@ -104,7 +104,10 @@ function App() {
       </div>
       <PageSizeSelector
         valueChangedHandler={(pagesize) => {
-          setPageSize(pagesize);
+          Promise.resolve(true)
+          .then(() => setPageIndex(1))
+          .then(() =>setPageSize(pagesize));
+          
         }}
       />
     </>
