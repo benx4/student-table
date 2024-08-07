@@ -16,8 +16,9 @@ import PageSizeSelector from "./components/PageSizeSelector";
 // }
 //Simulate a reducer
 function paginateData<T extends Student>(
-  data: T[],pageSize: number,
-  pageIndex: number,
+  data: T[],
+  pageSize: number,
+  pageIndex: number
 ) {
   return data.slice((pageIndex - 1) * pageSize, pageIndex * pageSize);
 }
@@ -46,8 +47,8 @@ function App() {
             onSortHandler={(field: keyof Student) => {
               Promise.resolve(true)
                 .then(() =>
-                  setStudents((old) => {
-                    const result = old.slice();
+                  setStudents((_) => {
+                    const result = students.slice();
                     result.sort((prev: Student, next: Student) => {
                       return sortType === "A"
                         ? prev[field] > next[field]
@@ -57,8 +58,8 @@ function App() {
                           ? -1
                           : 1;
                     });
-                    return paginateData(result, pageSize, pageIndex);
-                  }),
+                    return result
+                  })
                 )
                 .then(() => {
                   setSortType(sortType === "A" ? "D" : "A");

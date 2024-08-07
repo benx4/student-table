@@ -1,4 +1,3 @@
-import { MouseEventHandler } from "react";
 import styled from "styled-components";
 
 const PageArrowWapper = styled.em<{ place: "left" | "right" }>`
