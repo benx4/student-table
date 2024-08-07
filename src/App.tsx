@@ -29,6 +29,7 @@ function App() {
   const [sortType, setSortType] = useState<string>("");
   const [pageIndex, setPageIndex] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(5);
+  const [sortField, setSortField] = useState<string>("");
 
   useEffect(() => {
     // window.page = (pageIndex) => {
@@ -44,6 +45,7 @@ function App() {
         <div className="table-wrapper">
           <TableHeader
             sortType={sortType}
+            sortField={sortField}
             onSortHandler={(field: keyof Student) => {
               Promise.resolve(true)
                 .then(() =>
@@ -58,9 +60,12 @@ function App() {
                           ? -1
                           : 1;
                     });
-                    return result
+                    return result;
                   })
                 )
+                .then(() => {
+                  setSortField(field);
+                })
                 .then(() => {
                   setSortType(sortType === "A" ? "D" : "A");
                 });

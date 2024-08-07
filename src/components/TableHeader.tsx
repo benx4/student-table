@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Student } from "../types/students";
 
 const TableHeaderWrapper = styled.div`
+  width: 60em;
   display: flex;
   gap: 1px;
   position: sticky;
@@ -11,7 +12,8 @@ const TableHeaderWrapper = styled.div`
   border-right: 1px solid #ccc;
 
   & > div {
-    width: 150px;
+    flex: 1;
+    width: calc(60em / 5);
     padding: 1em 0.5em;
     background-color: #1970c0;
     color: white;
@@ -40,25 +42,29 @@ const TableHeaderWrapper = styled.div`
   }
 
   & > div:nth-of-type(1) {
-    left: 0px;
+    left: 0;
   }
   & > div:nth-of-type(2) {
-    left: 150px;
+    left: calc(60em / 5 * 1);
   }
   & > div:nth-of-type(3) {
-    left: 300px;
+    left: calc(60em / 5 * 2);
+    /* left: 300px; */
   }
   & > div:nth-of-type(4) {
-    left: 450px;
+    left: calc(60em / 5 * 3);
+    /* left: 450px; */
   }
   & > div:nth-of-type(5) {
-    left: 600px;
+    left: calc(60em / 5 * 4);
+    /* left: 600px; */
   }
 `;
 
 type TableHeaderProps = {
   colsToSticky?: number;
   sortType: string;
+  sortField: string;
   onStickColumn: (startCols: number) => void;
   onSortHandler: (field: keyof Student) => void;
 };
@@ -66,6 +72,7 @@ type TableHeaderProps = {
 const TableHeader = function ({
   colsToSticky = 0,
   sortType = "",
+  sortField = "",
   onStickColumn,
   onSortHandler,
 }: TableHeaderProps) {
@@ -87,7 +94,13 @@ const TableHeader = function ({
                 onSortHandler(f.toLowerCase() as keyof Student);
               }}
             >
-              {sortType === "" ? "<>" : sortType === "A" ? "<" : ">"}
+              {sortField === f.toLowerCase()
+                ? sortType === ""
+                  ? "<>"
+                  : sortType === "A"
+                    ? "<"
+                    : ">"
+                : "<>"}
             </i>
           </div>
         );

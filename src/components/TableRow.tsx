@@ -2,13 +2,17 @@ import styled from "styled-components";
 import { Student } from "../types/students";
 
 const TableRowWrapper = styled.div`
+  width: 60em;
   display: flex;
   gap: 1px;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
+  background-color: white;
 
   & > div {
-    width: 150px;
+    flex: 1;
+    /* width: 150px; */
+    width: calc(60em / 5);
     padding: 1em 0.5em;
     background-color: white;
     color: black;
@@ -23,16 +27,20 @@ const TableRowWrapper = styled.div`
     left: 0px;
   }
   & > div:nth-of-type(2) {
-    left: 150px;
+    /* left: 150px; */
+    left: calc(60em / 5 * 1);
   }
   & > div:nth-of-type(3) {
-    left: 300px;
+    /* left: 300px; */
+    left: calc(60em / 5 * 2);
   }
   & > div:nth-of-type(4) {
-    left: 450px;
+    /* left: 450px; */
+    left: calc(60em / 5 * 3);
   }
   & > div:nth-of-type(5) {
-    left: 600px;
+    left: calc(60em / 5 * 4);
+    /* left: 600px; */
   }
 `;
 
